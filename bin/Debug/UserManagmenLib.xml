@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserManagmenLib</name>
+    </assembly>
+    <members>
+        <member name="T:UserManagmenLib.User">
+            <summary>
+            用户信息实体类
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.UserId">
+            <summary>
+            账号名称
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.UserName">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.UserPermission">
+            <summary>
+            账号身份
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.UserPassword">
+            <summary>
+            帐号密码
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.PhoneNum">
+            <summary>
+            联系号码
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.UserState">
+            <summary>
+            账号状态 1可用  0冻结
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.CreateDate">
+            <summary>
+            账号创建时间
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.User.AuthorityValue">
+            <summary>
+            权限管理值
+            </summary>
+        </member>
+        <member name="T:UserManagmenLib.User.UserPermissionType">
+            <summary>
+            用户权限等级枚举
+            </summary>
+        </member>
+        <member name="T:UserManagmenLib.UserManagmen">
+            <summary>
+            用户权限管理 超级管理员账号"msw" 密码"msw6256530"
+            </summary>
+        </member>
+        <member name="P:UserManagmenLib.UserManagmen.ActiveUser">
+            <summary>
+            当前登录用户
+            </summary>
+        </member>
+        <member name="F:UserManagmenLib.UserManagmen.userDal">
+            <summary>
+            创建DAL数据操作层
+            </summary>
+        </member>
+        <member name="F:UserManagmenLib.UserManagmen.AuthorityNames">
+            <summary>
+            权限分配集合
+            </summary>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.GetAuthorityRes(System.String)">
+            <summary>
+            通过字符串查找权限
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UserManagmenLib.UserManagmen.DalType">
+            <summary>
+            信息存储类型选择
+            </summary>
+        </member>
+        <member name="T:UserManagmenLib.UserManagmen.CodeNum">
+            <summary>
+            返回代码枚举
+            </summary>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.#ctor(UserManagmenLib.UserManagmen.DalType,System.String)">
+            <summary>
+            用户权限管理构造函数
+            </summary>
+            <param name="type">信息存储类型选择</param>
+            <param name="path">数据库文件保存路径例如(软件根目录\\SqlData)</param>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserLogin(System.String,System.String)">
+            <summary>
+            账号登录操作
+            </summary>
+            <param name="userName">登录用户名</param>
+            <param name="userPwd">登录用户密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserLogout">
+            <summary>
+            退出登录
+            </summary>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.AddUser(UserManagmenLib.User)">
+            <summary>
+            添加新用户 0:添加用户成功 1:权限不足 4:存在相同的账号 7:用户数据异常
+            </summary>
+            <param name="user">添加的用户实体</param>
+            <returns>0:添加用户成功 1:权限不足 4:存在相同的账号 7:用户数据异常</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.DelUser(UserManagmenLib.User)">
+            <summary>
+            删除用户 0:删除用户成功  1:权限不足 3:账号不存在 7:用户数据异常
+            </summary>
+            <param name="user"></param>
+            <returns>0:删除用户成功  1:权限不足 3:账号不存在 7:用户数据异常</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.DelUser(System.String)">
+            <summary>
+            删除用户 0:删除用户成功 1:权限不足 3:账号不存在 7:用户数据异常
+            </summary>
+            <param name="userName"></param>
+            <returns>0：删除用户成功 1:权限不足 3:账号不存在 7:用户数据异常</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.AltUser(UserManagmenLib.User,UserManagmenLib.User)">
+            <summary>
+            修改用户 0:修改用户信息完成 1:权限不足 3:修改前的账号信息不存在 4:修改后存在相同账号信息 7:用户数据异常
+            </summary>
+            <param name="oldUser">旧的用户实体</param>
+            <param name="newUser">修改后的用户实体</param>
+            <returns>0:修改用户信息完成 1:权限不足 3:修改前的账号信息不存在 4:修改后存在相同账号信息 7:用户数据异常</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.AltUser(System.String,UserManagmenLib.User)">
+            <summary>
+            修改用户 0:修改用户信息完成 1:权限不足 3:修改前的账号信息不存在 4:修改后存在相同账号信息 7:用户数据异常
+            </summary>
+            <param name="userName">旧的用户名</param>
+            <param name="newUser">修改后的用户实体</param>
+            <returns>0:修改用户信息完成 1:权限不足 3:修改前的账号信息不存在 4:修改后存在相同账号信息 7:用户数据异常</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.GetAllUserInfo">
+            <summary>
+            获取所有用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.FindUserByUserName(System.String)">
+            <summary>
+            通过账号名查找
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.FindUserByPermission(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UserManagmenLib.UserManagmen.UserDal_SqlServer">
+            <summary>
+            通过数据库操作
+            </summary>
+        </member>
+        <member name="F:UserManagmenLib.UserManagmen.UserDal_SqlServer.connStr1">
+            <summary>
+            创建数据库时使用
+            </summary>
+        </member>
+        <member name="F:UserManagmenLib.UserManagmen.UserDal_SqlServer.connStr2">
+            <summary>
+            连接数据库时使用
+            </summary>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.UserLogin(System.String,System.String,UserManagmenLib.User@)">
+            <summary>
+            查找用户
+            </summary>
+            <param name="userName"></param>
+            <param name="userPwd"></param>
+            <returns>代码0:查找完成 2:账号密码错误</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.FindUserByUsername(System.String,UserManagmenLib.User@)">
+            <summary>
+            查找用户
+            </summary>
+            <param name="userName"></param>
+            <returns>代码0:查找完成 3:查找的信息不存在</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.FindUserByUserpermission(System.Int32,System.Data.DataTable@)">
+            <summary>
+            查找用户 
+            </summary>
+            <param name="userPermission"></param>
+            <param name="user"></param>
+            <returns>代码0:查找完成 3:查找的信息不存在</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.GetAllUserInfo">
+            <summary>
+            获取所有用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.AddUser(UserManagmenLib.User)">
+            <summary>
+            添加用户
+            </summary>
+            <param name="user"></param>
+            <returns>代码0:添加用户完成 4:存在相同的账号</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.DelUser(UserManagmenLib.User)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+            <returns>代码0:删除用户完成 3:账号不存在</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDal_SqlServer.AltUser(UserManagmenLib.User,UserManagmenLib.User)">
+            <summary>
+            修改用户
+            </summary>
+            <param name="oldUser"></param>
+            <param name="newUser"></param>
+            <returns>代码0:修改用户信息完成 3:修改前的账号信息不存在 4:修改后存在相同账号信息</returns>
+        </member>
+        <member name="T:UserManagmenLib.UserManagmen.UserDalBase">
+            <summary>
+            用户管理数据操作层基类
+            </summary>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.UserLogin(System.String,System.String,UserManagmenLib.User@)">
+            <summary>
+            查找用户
+            </summary>
+            <param name="userName"></param>
+            <param name="userPwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.FindUserByUsername(System.String,UserManagmenLib.User@)">
+            <summary>
+            查找用户
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.FindUserByUserpermission(System.Int32,System.Data.DataTable@)">
+            <summary>
+            查找用户
+            </summary>
+            <param name="userPermission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.AddUser(UserManagmenLib.User)">
+            <summary>
+            添加用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.DelUser(UserManagmenLib.User)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.AltUser(UserManagmenLib.User,UserManagmenLib.User)">
+            <summary>
+            修改用户
+            </summary>
+            <param name="oldUser"></param>
+            <param name="newUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.UserDalBase.GetAllUserInfo">
+            <summary>
+            获取所有用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UserManagmenLib.UserManagmen.SQLHelper">
+            <summary>
+            访问 SQL Server 数据通用类
+            </summary>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.Update(System.String,System.String)">
+            <summary>
+            执行增删改操作(insert/update/delect)。返回受影响行数
+            </summary>
+            <param name="sql">sql语句</param>
+            <returns>返回受影响行数</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetSingleResult(System.String)">
+            <summary>
+            执行单一结果查询。返回一个 object 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <returns>返回一个 object 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetReader(System.String)">
+            <summary>
+            执行结果集查询。返回一个 SqlDataReader 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <returns>返回一个 SqlDataReader 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetDataSet(System.String)">
+            <summary>
+            执行返回数据集的查询。返回一个 DataSet 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <returns>返回一个 DataSet 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetDataTable(System.String,System.String)">
+            <summary>
+            执行返回数据集的查询。返回一个 DataSet 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <returns>返回一个 DataSet 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetServerTime">
+            <summary>
+            获取数据库服务的时间。返回 DateTime 对象
+            </summary>
+            <returns>返回 DateTime 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.Update(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行增删改操作(insert/update/delect)。返回受影响行数
+            </summary>
+            <param name="sql">sql语句</param>
+            <param name="param">参数数组</param>
+            <returns>返回受影响行数</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetSingleResult(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行单一结果查询。返回一个 object 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <param name="param">参数数组</param>
+            <returns>返回一个 object 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetReader(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行结果集查询。返回一个 SqlDataReader 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <param name="param">参数数组</param>
+            <returns>返回一个 SqlDataReader 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetDataSet(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行返回数据集的查询。返回一个 DataSet 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <param name="param">参数数组</param>
+            <returns>返回一个 DataSet 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetDataTable(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行返回数据集的查询。返回一个 DataSet 对象
+            </summary>
+            <param name="sql">sql语句</param>
+            <param name="param">参数数组</param>
+            <returns>返回一个 DataSet 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.UpdateByTran(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Collections.Generic.List{System.Data.SqlClient.SqlParameter[]})">
+            <summary>
+            启用事务提交带多条参数的 SQL 语句
+            </summary>
+            <param name="mainSql">主表 SQL 语句</param>
+            <param name="mainParam">主表 SQL 语句对应的参数</param>
+            <param name="detailSql">明细表 SQL 语句</param>
+            <param name="detailParam">明细表 SQL 语句对应的参数数组集合</param>
+            <returns>返回事务是否执行成功</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.UpdateByProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程增删改操作(insert/update/delect)。返回受影响行数
+            </summary>
+            <param name="procedureName">存储过程名称。需要在数据库创建存储过程</param>
+            <param name="param">参数数组</param>
+            <returns>返回受影响行数</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetSingleResultByProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程单一结果查询。返回一个 object 对象
+            </summary>
+            <param name="procedureName">存储过程名称。需要在数据库创建存储过程</param>
+            <param name="param">参数数组</param>
+            <returns>返回一个 object 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.GetReaderByProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程结果集查询。返回一个 SqlDataReader 对象
+            </summary>
+            <param name="procedureName">存储过程名称。需要在数据库创建存储过程</param>
+            <param name="param">参数数组</param>
+            <returns>返回一个 SqlDataReader 对象</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.UpdateByTranByProcedure(System.String,System.Collections.Generic.List{System.Data.SqlClient.SqlParameter[]})">
+            <summary>
+            启用事务提交带多条参数的存储过程
+            </summary>
+            <param name="procedureName">存储过程名称。需要在数据库创建存储过程</param>
+            <param name="paramArray">存储过程参数数组集合</param>
+            <returns>返回基于事务的存储过程调用是否成功</returns>
+        </member>
+        <member name="M:UserManagmenLib.UserManagmen.SQLHelper.WriteLog(System.String)">
+            <summary>
+            异常信息日志
+            </summary>
+            <param name="log"></param>
+        </member>
+    </members>
+</doc>

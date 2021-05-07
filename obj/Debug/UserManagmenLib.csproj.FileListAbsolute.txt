@@ -1,0 +1,7 @@
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\bin\Debug\UserManagmenLib.dll
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\bin\Debug\UserManagmenLib.pdb
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\obj\Debug\UserManagmenLib.csprojAssemblyReference.cache
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\obj\Debug\UserManagmenLib.csproj.CoreCompileInputs.cache
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\obj\Debug\UserManagmenLib.dll
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\obj\Debug\UserManagmenLib.pdb
+E:\散料贴片机项目\bulk-placement-machine\MSWIndustrialControl\UserManagmenLib\bin\Debug\UserManagmenLib.xml
